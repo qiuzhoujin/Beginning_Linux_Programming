@@ -26,4 +26,5 @@ fi
 
 sleep 2
 dialog --clear
+rm _1.txt
 exit 0
