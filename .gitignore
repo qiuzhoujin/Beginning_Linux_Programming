@@ -1,1 +1,6 @@
 *.o
+copy_system
+file.out
+perl
+simple_read
+
