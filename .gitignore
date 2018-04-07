@@ -5,3 +5,4 @@ perl
 simple_read
 
 copy_block
+copy_stdio
