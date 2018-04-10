@@ -3,7 +3,7 @@ copy_system
 file.out
 perl
 simple_read
-
 copy_block
 copy_stdio
 printdir
+a.out
