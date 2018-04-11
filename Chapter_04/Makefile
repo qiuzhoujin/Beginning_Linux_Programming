@@ -1,4 +1,4 @@
-src=args
+src=argopt
 tar=a.out
 C:
 	gcc -g -o $(tar) $(src).c
