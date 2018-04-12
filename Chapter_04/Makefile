@@ -1,4 +1,4 @@
-src=argopt
+src=environ
 tar=a.out
 C:
 	gcc -g -o $(tar) $(src).c
