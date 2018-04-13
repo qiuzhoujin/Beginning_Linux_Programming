@@ -1,4 +1,4 @@
-src=environ
+src=showenv
 tar=a.out
 C:
 	gcc -g -o $(tar) $(src).c
