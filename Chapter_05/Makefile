@@ -1,4 +1,4 @@
-src=menu2
+src=menu3
 tar=a.out
 C:
 	gcc -g -o $(tar) $(src).c -lm
