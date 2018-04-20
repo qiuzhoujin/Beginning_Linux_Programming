@@ -1,4 +1,4 @@
-src=menu3
+src=password
 tar=a.out
 C:
 	gcc -g -o $(tar) $(src).c -lm
