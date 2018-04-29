@@ -1,5 +1,5 @@
-src=menu4
+src=badterm
 tar=a.out
 C:
-	gcc -g -o $(tar) $(src).c -lm
+	gcc -g -o $(tar) $(src).c -lncurses
 	./$(tar)
