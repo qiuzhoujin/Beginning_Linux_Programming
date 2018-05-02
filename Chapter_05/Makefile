@@ -1,4 +1,4 @@
-src=badterm
+src=sizeterm
 tar=a.out
 C:
 	gcc -g -o $(tar) $(src).c -lncurses
