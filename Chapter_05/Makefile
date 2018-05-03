@@ -1,4 +1,4 @@
-src=sizeterm
+src=menu5
 tar=a.out
 C:
 	gcc -g -o $(tar) $(src).c -lncurses
