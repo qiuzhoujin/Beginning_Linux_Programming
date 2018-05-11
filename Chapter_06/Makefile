@@ -1,4 +1,4 @@
-src=screen1
+src=moveadd
 tar=a.out
 C:
 	gcc -g -o $(tar) $(src).c -lncurses
