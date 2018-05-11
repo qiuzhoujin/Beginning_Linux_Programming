@@ -43,16 +43,18 @@ int main()
 	{
 		move(10, 10);
 		insch(*scan_ptr--);
+		refresh();
+		usleep(150000);
 	}
 	scan_ptr = witch_two + strlen(witch_two) - 1;
 	while (scan_ptr != witch_two)
 	{
 		move(13, 10);
 		insch(*scan_ptr--);
+		refresh();
+		usleep(150000);
 	}
 	attroff(A_DIM);
-	refresh();
-	sleep(3);
 
 	move(LINES - 1, COLS - 1);
 
