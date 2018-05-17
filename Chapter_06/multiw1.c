@@ -52,6 +52,9 @@ int main()
 	refresh();
 	sleep(2);
 
+	wrefresh(new_window_ptr);
+	sleep(2);
+
 	touchwin(new_window_ptr);
 	wrefresh(new_window_ptr);
 	sleep(2);
