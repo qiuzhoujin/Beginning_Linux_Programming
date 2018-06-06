@@ -1,4 +1,4 @@
-src=memory5b
+src=memory6
 tar=a.out
 C:
 	gcc -g -o $(tar) $(src).c
