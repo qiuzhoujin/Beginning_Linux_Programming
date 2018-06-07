@@ -1,4 +1,4 @@
-src=memory6
+src=lock1
 tar=a.out
 C:
 	gcc -g -o $(tar) $(src).c
