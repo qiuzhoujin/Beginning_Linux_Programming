@@ -1,4 +1,4 @@
-src=lock2
+src=lock3
 tar=a.out
 C:
 	gcc -g -o $(tar) $(src).c
