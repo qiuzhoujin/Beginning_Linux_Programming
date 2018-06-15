@@ -2,11 +2,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <fcntl.h>
-
 #include <ndbm.h>
 #include <string.h>
 
-#define TEST_DB_FILE "/tmp/dbm1_test"
+#define TEST_DB_FILE "/tmp/dbm2_test"
 #define ITEMS_USED 3
 
 struct test_data
@@ -69,23 +68,38 @@ int main()
 		}
 	}
 
+	/* now try to delete some data */
 	sprintf(key_to_use, "bu%d", 13);
 	key_datum.dptr = key_to_use;
 	key_datum.dsize = strlen(key_to_use);
 
-	data_datum = dbm_fetch(dbm_ptr, key_datum);
-	if (data_datum.dptr)
+	if (dbm_delete(dbm_ptr, key_datum) == 0)
 	{
-		printf("Data retrieved\n");
-		memcpy(&item_retrieved, data_datum.dptr, data_datum.dsize);
-		printf("Retrieved item - %s %d %s\n",
-				item_retrieved.misc_chars,
-				item_retrieved.any_integer,
-				item_retrieved.more_chars);
+		printf("Data with key %s deleted\n", key_to_use);
 	}
 	else
 	{
-		printf("No data found for key %s\n", key_to_use);
+		printf("Nothing deleted for key %s\n", key_to_use);
+	}
+
+	for (key_datum = dbm_firstkey(dbm_ptr); 
+			key_datum.dptr;
+			key_datum = dbm_nextkey(dbm_ptr))
+	{
+		data_datum = dbm_fetch(dbm_ptr, key_datum);
+		if (data_datum.dptr)
+		{
+			printf("Data retrieved\n");
+			memcpy(&item_retrieved, data_datum.dptr, data_datum.dsize);
+			printf("Retrieved item - %s %d %s\n",
+					item_retrieved.misc_chars,
+					item_retrieved.any_integer,
+					item_retrieved.more_chars);
+		}
+		else
+		{
+			printf("No data found for key %s\n", key_to_use);
+		}
 	}
 	dbm_close(dbm_ptr);
 
