@@ -1,5 +1,5 @@
-src=lock3
+src=dbm1
 tar=a.out
 C:
-	gcc -g -o $(tar) $(src).c
-	./$(tar)
+	gcc -g -o $(tar) -I/usr/include/gdbm $(src).c -lgdbm_compat -lgdbm
+	#./$(tar)
