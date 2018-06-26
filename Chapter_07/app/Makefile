@@ -1,5 +1,24 @@
-src=dbm2
-tar=a.out
-C:
-	gcc -g -o $(tar) -I/usr/include/gdbm $(src).c -lgdbm_compat -lgdbm
-	#./$(tar)
+all: application
+
+INCLUDE=/usr/include/gdbm
+#LIBS=gdbm
+# On some distrbutions you mey need to change the above line to include
+# the compatability library, as shown below.
+# LIBS= -lgdbm_compat -lgdbm
+LIBS= -lgdbm_compat -lgdbm
+CFLAGS=
+
+app_ui.o: app_ui.c cd_data.h
+	gcc $(CFLAGS) -c app_ui.c
+
+access.o: cd_access.c cd_data.h
+	gcc $(CFLAGS) -I$(INCLUDE) -o access.o -c cd_access.c
+
+application: app_ui.o access.o
+	gcc $(CFLAGS) -o application app_ui.o access.o $(LIBS)
+
+clean:
+	rm -f application *.o
+
+nodbmfiles:
+	rm -f *.dir *.pag
