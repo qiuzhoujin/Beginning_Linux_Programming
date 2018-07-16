@@ -1,4 +1,4 @@
-src=connect2
+src=update1
 INCDIR=/usr/include/mysql
 LIBDIR=/usr/lib/mysql
 LIB=mysqlclient
