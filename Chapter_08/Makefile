@@ -1,4 +1,4 @@
-src=update1
+src=insert2
 INCDIR=/usr/include/mysql
 LIBDIR=/usr/lib/mysql
 LIB=mysqlclient
