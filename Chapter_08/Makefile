@@ -1,4 +1,4 @@
-src=select3
+src=select4
 INCDIR=/usr/include/mysql
 LIBDIR=/usr/lib/mysql
 LIB=mysqlclient
