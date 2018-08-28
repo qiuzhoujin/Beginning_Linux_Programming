@@ -1,5 +1,5 @@
-src=debug3
+src=cinfo
 tar=a.out
 C:
-	$(CC) -o $(tar) $(src).c
+	$(CC) -g -o $(tar) -DDEBUG $(src).c
 	./$(tar)
