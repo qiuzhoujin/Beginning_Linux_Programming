@@ -1,5 +1,5 @@
-src=efence
+src=checker
 tar=a.out
 C:
-	$(CC) -g -o $(tar) -DNDEBUG $(src).c -lefence
+	$(CC) -g -o $(tar) -DNDEBUG $(src).c
 	./$(tar)
