@@ -1,4 +1,4 @@
-src=useupper
+src=ctrlc
 tar=a.out
 C:
 	$(CC) -g -o $(tar) $(src).c
