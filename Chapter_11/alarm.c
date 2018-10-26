@@ -17,6 +17,7 @@ int main()
 
 	printf("alarm application starting\n");
 
+#if 0
 	pid = fork();
 	switch(pid)
 	{
@@ -31,6 +32,8 @@ int main()
 		exit(0);
 	}
 	/* if we get here we are the parent process */
+#endif
+	alarm(5);
 	printf("waiting for alarm to go off\n");
 	(void) signal(SIGALRM, ding);
 
