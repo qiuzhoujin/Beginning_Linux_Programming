@@ -25,6 +25,8 @@ int main()
 			perror("Thread creation failed");
 			exit(EXIT_FAILURE);
 		}
+		else
+			sleep(1);
 	}
 	printf("Waiting for threads to finish...\n");
 	for (lots_of_threads = NUM_THREADS - 1; lots_of_threads >= 0;lots_of_threads--)
