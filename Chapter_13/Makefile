@@ -1,4 +1,4 @@
-src=popen4
+src=pipe1
 tar=a.out
 C:
 	$(CC) -g -o $(tar) $(src).c
