@@ -1,4 +1,4 @@
-src=pipe1
+src=pipe2
 tar=a.out
 C:
 	$(CC) -g -o $(tar) $(src).c
