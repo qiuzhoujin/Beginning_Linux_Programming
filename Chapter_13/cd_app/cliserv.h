@@ -14,7 +14,7 @@ typedef enum
 {
 	s_create_new_database = 0,
 	s_get_cdc_entry,
-	s_get_ctd_entry,
+	s_get_cdt_entry,
 	s_add_cdc_entry,
 	s_add_cdt_entry,
 	s_del_cdc_entry,
@@ -41,7 +41,7 @@ typedef struct
 
 int server_starting(void);
 void server_ending(void);
-int read_request_form_client(message_db_t *rec_ptr);
+int read_request_from_client(message_db_t *rec_ptr);
 int start_resp_to_client(const message_db_t mess_to_send);
 int send_resp_to_client(const message_db_t mess_to_send);
 void end_resp_to_client(void);

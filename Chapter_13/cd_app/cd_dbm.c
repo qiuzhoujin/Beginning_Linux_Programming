@@ -6,8 +6,8 @@
 #include <fcntl.h>
 #include <string.h>
 
-// #include <ndbm.h>
-#include <gdbm-ndbm.h>
+#include <ndbm.h>
+//#include <gdbm-ndbm.h>
 
 #include "cd_data.h"
 

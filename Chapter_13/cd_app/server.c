@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
 
 	while (server_running)
 	{
-		if (read_request_form_client(&mess_command))
+		if (read_request_from_client(&mess_command))
 		{
 			process_command(mess_command);
 		}

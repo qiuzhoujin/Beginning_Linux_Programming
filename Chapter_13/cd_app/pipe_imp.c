@@ -1,3 +1,14 @@
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <fcntl.h>
+#include <limits.h>
+#include <signal.h>
+#include <string.h>
+#include <errno.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+
 #include "cd_data.h"
 #include "cliserv.h"
 
@@ -14,7 +25,7 @@ int server_starting(void)
 #endif
 
 	unlink(SERVER_PIPE);
-	if (mkfifo(SERVER_PIPD, 0777) == -1)
+	if (mkfifo(SERVER_PIPE, 0777) == -1)
 	{
 		fprintf(stderr, "Server startup error, no FIFO created\n");
 		return 0;
@@ -52,7 +63,7 @@ int read_request_from_client(message_db_t *rec_ptr)
 	if (server_fd != -1)
 	{
 		read_bytes = read(server_fd, rec_ptr, sizeof(*rec_ptr));
-		if (read_bytes = 0)
+		if (read_bytes == 0)
 		{
 			close(server_fd);
 			if ((server_fd = open(SERVER_PIPE, O_RDONLY)) == -1)
@@ -78,7 +89,7 @@ int start_resp_to_client(const message_db_t mess_to_send)
 #endif
 
 	sprintf(client_pipe_name, CLIENT_PIPE, mess_to_send.client_pid);
-	if ((clientfd = open(client_pipe_name, O_WRONLY)) == -1) return 0;
+	if ((client_fd = open(client_pipe_name, O_WRONLY)) == -1) return 0;
 	return 1;
 }
 
