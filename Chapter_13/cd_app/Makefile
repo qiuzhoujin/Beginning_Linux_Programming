@@ -26,4 +26,4 @@ server: server.o cd_dbm.o pipe_imp.o
 	$(CC) -o server -L$(DBM_LIB_PATH) $(DFLAGS) server.o cd_dbm.o pipe_imp.o $(DBM_LIB_FILE)
 
 clean:
-	rm -f server client_app *.o *~
+	rm -f server client *.o *~
