@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <fcntl.h>
 #include <limits.h>
+#include <string.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 
@@ -11,7 +12,7 @@
 #include "cliserv.h"
 
 static pid_t mypid;
-static int read_one_responce(message_db_t *rec_ptr);
+static int read_one_response(message_db_t *rec_ptr);
 
 int database_initialize(const int new_database)\
 {
@@ -32,7 +33,7 @@ cdc_entry get_cdc_entry(const char *cd_catalog_ptr)
 	message_db_t mess_ret;
 
 	ret_val.catalog[0] = '\0';
-	mess_send.client_pid = my_pid;
+	mess_send.client_pid = mypid;
 	mess_send.request = s_get_cdc_entry;
 	strcpy(mess_send.cdc_entry_data.catalog, cd_catalog_ptr);
 
@@ -85,7 +86,7 @@ cdt_entry get_cdt_entry(const char *cd_catalog_ptr, const int track_no)
 	message_db_t mess_ret;
 
 	ret_val.catalog[0] = '\0';
-	mess_send.client_pid = my_pid;
+	mess_send.client_pid = mypid;
 	mess_send.request = s_get_cdt_entry;
 	strcpy(mess_send.cdt_entry_data.catalog, cd_catalog_ptr);
 	mess_send.cdt_entry_data.track_no = track_no;
@@ -121,7 +122,7 @@ int add_cdc_entry(const cdc_entry entry_to_add)
 	message_db_t mess_send;
 	message_db_t mess_ret;
 
-	mess_send.client_pid = my_pid;
+	mess_send.client_pid = mypid;
 	mess_send.request = s_add_cdc_entry;
 	mess_send.cdc_entry_data = entry_to_add;
 
@@ -156,7 +157,7 @@ int add_cdt_entry(const cdt_entry entry_to_add)
 	message_db_t mess_send;
 	message_db_t mess_ret;
 
-	mess_send.client_pid = my_pid;
+	mess_send.client_pid = mypid;
 	mess_send.request = s_add_cdt_entry;
 	mess_send.cdt_entry_data = entry_to_add;
 
@@ -191,7 +192,7 @@ int del_cdc_entry(const char *cd_catalog_ptr)
 	message_db_t mess_send;
 	message_db_t mess_ret;
 
-	mess_send.client_pid = my_pid;
+	mess_send.client_pid = mypid;
 	mess_send.request = s_del_cdc_entry;
 	strcpy(mess_send.cdc_entry_data.catalog, cd_catalog_ptr);
 
@@ -226,7 +227,7 @@ int del_cdt_entry(const char *cd_catalog_ptr, const int track_no)
 	message_db_t mess_send;
 	message_db_t mess_ret;
 
-	mess_send.client_pid = my_pid;
+	mess_send.client_pid = mypid;
 	mess_send.request = s_del_cdt_entry;
 	strcpy(mess_send.cdt_entry_data.catalog, cd_catalog_ptr);
 	mess_send.cdt_entry_data.track_no = track_no;
@@ -273,7 +274,7 @@ cdc_entry search_cdc_entry(const char *cd_catalog_ptr, int *first_call_ptr)
 	{
 		*first_call_ptr = 0;
 		if (work_file) fclose(work_file);
-		work_file = tmp_file();
+		work_file = tmpfile();
 		if (!work_file) return ret_val;
 
 		mess_send.client_pid = mypid;
