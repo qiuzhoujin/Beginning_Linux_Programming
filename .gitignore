@@ -10,3 +10,10 @@ a.out
 core
 *.user
 build-*-Desktop_Qt_5_8_0_GCC_64bit-Debug
+client
+server
+tbd
+*.out
+*.man
+shm1
+shm2
