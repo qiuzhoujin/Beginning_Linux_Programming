@@ -17,3 +17,5 @@ tbd
 *.man
 shm1
 shm2
+client*
+server*
