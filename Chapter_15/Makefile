@@ -1,4 +1,4 @@
-src=getname
+src=getdate
 tar=a.out
 C:
 	$(CC) -g -o $(tar) $(src).c
