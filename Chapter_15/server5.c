@@ -70,8 +70,10 @@ int main()
 					else
 					{
 						read(fd, &ch, 1);
-						sleep(5);
+						// the prompt should be before sleep/processing
 						printf("serving client on fd %d\n", fd);
+						sleep(5);
+						//printf("serving client on fd %d\n", fd);
 						ch++;
 						write(fd, &ch, 1);
 					}
