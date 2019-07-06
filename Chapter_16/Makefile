@@ -1,2 +1,4 @@
+SRC=entry
+
 all:
-	gcc container.c -o a.out `pkg-config --cflags --libs gtk+-2.0`
+	gcc $(SRC).c -o a.out `pkg-config --cflags --libs gtk+-2.0`
