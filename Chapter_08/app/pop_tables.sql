@@ -1,13 +1,13 @@
 
----
---- This populates the CD database tables
----
---- This script will delete any existing data, and forces the AUTO_INCREMENT id fields to
---- ensure the IDs all match correctly.
----
+--
+-- This populates the CD database tables
+--
+-- This script will delete any existing data, and forces the AUTO_INCREMENT id fields to
+-- ensure the IDs all match correctly.
+--
 
 
---- Delete existing data
+-- Delete existing data
 delete from track;
 delete from cd;
 delete from artist;
@@ -15,13 +15,13 @@ delete from artist;
 
 -- Now the data inserts
 
---- First the artist (or group) tables
+-- First the artist (or group) tables
 insert into artist(id, name) values(1, 'Pink Floyd');
 insert into artist(id, name) values(2, 'Genesis');
 insert into artist(id, name) values(3, 'Einaudi');
 insert into artist(id, name) values(4, 'Melanie C');
 
---- Then the cd table
+-- Then the cd table
 insert into cd(id, title, artist_id, catalogue) values(1, 'Dark Side of the Moon', 1, 'B000024D4P');
 insert into cd(id, title, artist_id, catalogue) values(2, 'Wish You Were Here', 1, 'B000024D4S');
 insert into cd(id, title, artist_id, catalogue) values(3, 'A Trick of the Tail', 2, 'B000024EXM');
@@ -29,7 +29,7 @@ insert into cd(id, title, artist_id, catalogue) values(4, 'Selling England By th
 insert into cd(id, title, artist_id, catalogue) values(5, 'I Giorni', 3, 'B000071WEV');
 insert into cd(id, title, artist_id, catalogue) values(6, 'Northern Star', 4, 'B00004YMST');
 
---- Finally we populate the tracks
+-- Finally we populate the tracks
 insert into track(cd_id, track_id, title) values(1, 1, 'Speak to me');
 insert into track(cd_id, track_id, title) values(1, 2, 'Breathe');
 insert into track(cd_id, track_id, title) values(1, 3, 'On the run');
