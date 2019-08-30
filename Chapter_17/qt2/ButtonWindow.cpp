@@ -1,6 +1,4 @@
 #include "ButtonWindow.moc"
-//#include <qpushbutton.h>
-//#include <qapplication.h>
 #include <QPushButton>
 #include <QApplication>
 #include <QMainWindow>
@@ -8,14 +6,8 @@
 using namespace std;
 
 ButtonWindow::ButtonWindow(QWidget *parent, const char *name)
-		//		: QMainWindow(parent, name)
 {
-	//this->setCaption("This is the window Title");
-	//setCaption("This is the window Title");
-	//QString str = "lame";
-	//char *_name = "Button1";
-	//QPushButton *button = new QPushButton("Click Me!", (QWidget*)this, "Button1");
-	//QPushButton *button = new QPushButton(str, this);
+	setWindowTitle("This is the window Title");
 	QPushButton *button = new QPushButton("Click Me!", this);
 	button->setGeometry(50, 30, 70, 20);
 	connect(button, SIGNAL(clicked()), this, SLOT(Clicked()));

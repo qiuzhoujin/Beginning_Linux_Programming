@@ -1,4 +1,3 @@
-//#include <qmainwindow.h>
 #include <QMainWindow>
 
 class ButtonWindow : public QMainWindow
